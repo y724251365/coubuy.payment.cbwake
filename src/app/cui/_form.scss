@@ -1,0 +1,14 @@
+.cui-form {
+  display: block;
+  margin: 0 $desc;
+  padding: 0 $desc/2;
+  font-size: $desc;
+  line-height: 1.5;
+  color: $dark;
+  background-color: #fff;
+  background-image: none;
+  background-clip: padding-box;
+  border: 1px solid $gray;
+  border-radius: $border-radius;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}

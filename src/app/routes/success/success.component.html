@@ -1,0 +1,15 @@
+<div class="error-wrapper">
+  <div class="error-ico"><img id="icon" src="assets/img/success.png"></div>
+  <div class="error-detail"><p id="rcode" class="error-handle">下单成功</p>
+    <p class="error-tips"></p></div>
+  <div id="msg" class="help-tips">订单详情</div>
+</div> 
+<div class="order">
+      <p>叫醒方式：{{wakeways}}</p>
+      <p>叫醒时间：{{waketime | date:'yyyy-mm-dd HH:mm a'}}</p>
+      <p>联系电话：{{phone || "电话未填"}}</p>
+      <p>其它信息：{{more || "备注未填"}}</p>
+</div>
+<div class="back">
+  <button role="button" class="btn btn-primary" routerLink="/coubuy">返回首页</button>
+</div>

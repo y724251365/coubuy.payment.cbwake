@@ -1,0 +1,70 @@
+<div class="header-coubuy">
+  <div class="bg-logo" style="background-image: url('assets/img/logo_bg.jpeg')"></div>
+  <div class="logo">
+    <img src='{{room.logo}}'/>
+  </div>
+  <div class="hotel">
+    <h3>{{room.storename}}</h3>
+    <span class="room">{{room.storename}} - 房间: {{room.address_name}}</span>
+  </div>
+</div>
+<div class="shop-tap">
+  <div class="item">会员卡: <span>{{card.cardno}}</span></div>
+  <div class="item">卡余额: <span class="money">￥{{((card.namount + card.red_packet)/100).toFixed(2)}}</span></div>
+</div>
+<div>
+  <div class="no-goods" *ngIf="!loading"><img
+    src="//github.elemecdn.com/eleme/fe-static/1cb05f59/media/empty/no-food.png">
+    <p>没有商品</p>
+    <p>该商家还未上传商品</p>
+  </div>
+</div>
+<div *ngIf="loading">
+  <!-- <div *ngFor="let i of goods">
+    <div *ngFor="let good of i.goods">
+      <div class="serve-title">{{good.goods_name}}</div> -->
+      <div class="serve-detail">
+        <p class="tips">请选择叫醒方式及叫醒时间</p>
+        <div [hidden]="formDir.submitted">
+          <form [formGroup]="validateForm" #formDir="ngForm">
+            <section class="form">
+              <select id="wakeways" formControlName="wakeways"  required [(ngModel)]="formsVali.wakeways">
+                <option value="" disabled selected>请选择叫醒方式</option>
+                <option value="酒店电话叫醒">酒店电话叫醒</option>
+                <option value="上门敲门叫醒">上门敲门叫醒</option>
+              </select>
+              <div *ngIf="wakeways.invalid && (wakeways.dirty || wakeways.touched)"  class="alert alert-danger">
+                <div *ngIf="wakeways.errors.required">* 请选择一种叫醒方式 </div>
+              </div>
+            </section>
+            <section class="form">
+              <input type="datetime-local" name="user_date" id="waketime" 
+                        formControlName="waketime" required [(ngModel)]="formsVali.waketime"/>
+                <div *ngIf="waketime.invalid && (waketime.dirty || waketime.touched)"  class="alert alert-danger">
+                  <div *ngIf="waketime.errors.required">* 请选择叫醒时间 </div>
+                </div>
+            </section>
+            <section class="form">
+              <input type="text" placeholder="联系电话" formControlName="phone" [(ngModel)]="formsVali.phone"/>
+            </section>
+            <section class="form">
+              <textarea type="text" rows="3" cols="20" placeholder="备注，150字内" formControlName="more"  [(ngModel)]="formsVali.more"></textarea>
+            </section>
+            <button class="submitdisabled" [ngClass]="{submit: !validateForm.invalid}"  type="submit"  
+                        [disabled]="validateForm.invalid">
+                确定下单
+              </button>
+          </form>
+        </div>
+        <div class="form" *ngIf="formDir.submitted">
+          <p>您已成功下单，详情如下：</p>
+          <p>叫醒方式：{{formsVali.wakeways}}</p>
+          <p>叫醒时间：{{formsVali.waketime | date:'yyyy-mm-dd HH:mm a'}}</p>
+          <p>联系电话：{{formsVali.phone || "电话未填"}}</p>
+          <p>其它信息：{{formsVali.more || "备注未填"}}</p>
+          <button class="submit" style="background:#0275d8;color:#fff" (click)="toSuccess()">确定</button>
+        </div>
+      </div>
+    </div>
+  <!-- </div>
+</div> -->

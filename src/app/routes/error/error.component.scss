@@ -1,0 +1,40 @@
+b {
+  color: #d9534f
+}
+
+.error-wrapper {
+  margin: 3rem .4rem .266667rem .4rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center
+}
+
+.error-ico {
+  margin-bottom: .533334rem
+}
+
+.error-ico img {
+  width: 3rem
+}
+
+.error-detail {
+  flex: 0 0 100%
+}
+
+.error-handle {
+  font-size: .466667rem
+}
+
+.error-tips {
+  font-size: .293333rem;
+  color: #868e96
+}
+
+.help-tips {
+  margin: .533334rem .4rem;
+  padding: .266667rem .4rem;
+  border-radius: .106667rem;
+  font-size: .293333rem;
+  color: #868e96
+}
